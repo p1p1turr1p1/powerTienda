@@ -1,0 +1,348 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PowerTienda - La mejor tienda del mundo</title>
+  <link rel="stylesheet" href="{% static 'css/css/style.css' %}">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/css/owl.carousel.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css'%}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/4.5.6/css/ionicons.min.css">
+  <link rel="stylesheet" href="{% static 'css/css/animate.css' %}">
+  <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+  <link rel="icon" type="image/x-icon" href="{% static '/img/etc/favicon.png'%}">
+
+</head>
+<div id="preloader">
+  <img src="{% static '/img/iconos/loading.gif'%}" alt="Loading...">
+</div>
+
+<body>
+  <!--NAVBAR-->
+  <var></var>
+  <nav class="navbar navbar-expand-lg navbar-dark p-3 bg-info" id="headerNav">
+    <div class="container-fluid">
+      <a class="navbar-brand d-block d-lg-none" href="{% url 'index' %}">
+        <img src="{% static '/img/etc/logo.png'%}" height="80" />
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class=" collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav mx-auto ">
+          <li class="nav-item">
+            <a class="nav-link mx-2 active" aria-current="page" href="{% url 'index' %}">Inicio</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link mx-2 dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              Productos
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <li><a class="dropdown-item" href="{% url 'cinturon' %}">Cinturones</a></li>
+              <li><a class="dropdown-item" href="{% url 'munequera' %}">Muñequeras</a></li>
+              <li><a class="dropdown-item" href="{% url 'rodillera' %}">Rodilleras</a></li>
+
+            </ul>
+
+          <li class="nav-item d-none d-lg-block">
+            <a class="nav-link mx-2" href="#">
+              <img src="{% static '/img/etc/logo.png'%}" height="80" />
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-2" href="{% url 'contacto' %}">Contacto</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-2" href="{% url 'checkoutV' %}"><img src="{% static '/img/etc/carroBlanco.png'%}" height="25"
+                alt=""></a>
+          </li>
+          <li class="nav-item" id="imagen">
+            <a href="" class="btn btn-default btn-rounded mb-10" data-bs-toggle="modal" data-bs-target="#logeomodal"><img
+                id="imagen" src="{% static '/img/etc/user.png'%}" height="50" width="50" alt=""></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- fin BARRA NAVEGACION-->
+
+  <!-- modal login-->
+  <div class="modal fade" id="logeomodal" tabindex="-1" role="dialog" aria-labelledby="Logeo" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header text-center">
+          <h4 class="modal-title w-100">Logearse</h4>
+
+          </button>
+        </div>
+        <div class="modal-body mx-3">
+          <div class="md-form mb-2">
+            <i class="fas fa-user prefix grey-text"></i>
+            <input type="text" id="usuario" class="form-control" name="Usuario" placeholder="Usuario">
+          </div>
+          <div class="md-form mb-1">
+            <i class="fas fa-envelope prefix grey-text"></i>
+            <input type="password" id="contrasena" class="form-control validate" name="password"
+              placeholder="Contraseña">
+            <div class="modal-footer justify-content">
+              <button class="col-md-12 btn btn-primary btn-lg active" role="button" aria-pressed="true"
+                onclick="cambiarImagen()" data-dismiss="modal" us>Entrar</button>
+              <a href="{% url 'registro' %}" class="col-md-12 btn btn-outline-success btn-lg active" role="button"
+                aria-pressed="true">Registro</a>
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!--fin modal login-->
+
+
+  <nav> <!-- CARRUSEL -->
+    <section class="ftco-section" style="padding-top: 30px;">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center">
+          </div>
+          <div class="col-md-12">
+            <div class="slider-hero">
+              <div class="featured-carousel owl-carousel">
+                <div class="item">
+                  <div class="work">
+                    <div class="img d-flex align-items-center justify-content-center"
+                      style="background-image: url({% static '/img/cinturones/cinturonCarrusel.png'%});">
+                      <div class="text text-center">
+                        <h2>Cinturones lumbares</h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="work">
+                    <div class="img d-flex align-items-center justify-content-center"
+                      style="background-image: url({% static '/img/munequeras/munequeras.jpg'%});">
+                      <div class="text text-center">
+                        <h2>Muñequeras</h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="work">
+                    <div class="img d-flex align-items-center justify-content-center"
+                      style="background-image: url({% static '/img/rodileras/rodillera1.jpg'%});">
+                      <div class="text text-center">
+                        <h2>Rodilleras</h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="my-5 text-center">
+                <ul class="thumbnail">
+                  <li class="active img"><a href="#"><img src="{% static '/img//cinturones/cinturonCarrusel.png'%}" alt="Cinturones"
+                        class="img-fluid"></a></li>
+                  <li><a href=""><img src="{% static '/img/munequeras/munequeras.jpg'%}" alt="Muñeqeras" class="img-fluid"></a></li>
+                  <li><a href=""><img src="{% static '/img/rodileras/rodilleras.jpeg'%}" alt="Rodilleras" class="img-fluid"></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </nav>
+  </section>
+
+  </nav>
+  <!-- CARDS -->
+
+  <div class="container">
+    <div class="row">
+
+      <div class="row col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+
+        <div class="card col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+          <img src="{% static '/img/cinturones/belt2.jpeg'%}" class="card-img-top" alt="Card image" />
+
+          <div class="card-block">
+            <h4 class="card-title">Cinturon lumbar</h4>
+            <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed corporis expedita,
+              delectus maiores eaque quam iusto natus voluptate maxime sit. Modi optio ullam dolor voluptatem quisquam
+              cumque error ipsa tempora?</p>
+            <a href="{% url 'cinturon' %}" class="btn btn-success">Comprar</a>
+          </div>
+        </div>
+        <div class="card col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+          <img src="{% static '/img/munequeras/mun7.webp'%}" class="card-img-top" alt="Card image" />
+
+          <div class="card-block">
+            <h4 class="card-title">Muñequeras</h4>
+            <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad minima laborum provident
+              deleniti assumenda nulla consectetur mollitia fugiat exercitationem doloremque! Earum consectetur
+              praesentium assumenda commodi</p>
+            <a href="{% url 'munequera' %}" class="btn btn-success">Comprar</a>
+            <div class="p-2"></div>
+          </div>
+        </div>
+
+        <div class="card col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 .img-fluid">
+          <img src="{% static '/img/rodileras/rodillera1.jpg'%}" class="card-img-top" alt="Card image" />
+
+          <div class="card-block">
+            <h4 class="card-title">Rodilleras</h4>
+            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, obcaecati amet. Nobis,
+              eius! Molestiae quisquam aliquam mollitia maxime excepturi quibusdam, officia velit ut eum consectetur
+              magnam facere nam fugit</p>
+            <a href="{% url 'rodillera' %}" class="btn btn-success">Comprar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+   
+	<div class="container">
+		<h1 class="my-4">Reseñas ⭐</h1>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Opinión</th>
+					<th></th>
+					<th>Usuario</th>
+					<th>Fecha</th>
+				</tr>
+			</thead>
+			<tbody id="post-table-body">
+			</tbody>
+		</table>
+	</div>
+	<script>
+		fetch('https://jsonplaceholder.typicode.com/posts?_start=0&_limit=3')
+			.then(response => response.json())
+			.then(data => {
+				const postTableBody = document.getElementById('post-table-body');
+				for(let i=0; i<4; i++) {
+					const post = data[i];
+					const tr = document.createElement('tr');
+					const tdTitle = document.createElement('td');
+					const tdBody = document.createElement('td');
+					const tdUser = document.createElement('td');
+					const tdDate = document.createElement('td');
+					tdTitle.textContent = post.title;
+					tdBody.textContent = post.body;
+					fetch(`https://jsonplaceholder.typicode.com/users/${post.userId}`)
+						.then(response => response.json())
+						.then(user => {
+							tdUser.textContent = user.name;
+						});
+					tdDate.textContent = post.date;
+					tr.appendChild(tdTitle);
+					tr.appendChild(tdBody);
+					tr.appendChild(tdUser);
+					tr.appendChild(tdDate);
+					postTableBody.appendChild(tr);
+				}
+			});
+	</script>
+  <script>
+		fetch('https://jsonplaceholder.typicode.com/posts?_start=0&_limit=3')
+			.then(response => response.json())
+			.then(data => {
+				const postTableBody = document.getElementById('post-table-body');
+				data.forEach(post => {
+					const tr = document.createElement('tr');
+					const tdTitle = document.createElement('td');
+					const tdBody = document.createElement('td');
+					const tdUser = document.createElement('td');
+					const tdDate = document.createElement('td');
+					const tdCategory = document.createElement('td');
+					const tdComments = document.createElement('td');
+					tdTitle.textContent = post.title;
+					tdBody.textContent = post.body;
+					fetch(`https://jsonplaceholder.typicode.com/users/${post.userId}`)
+						.then(response => response.json())
+						.then(user => {
+							tdUser.textContent = user.name;
+						});
+					tdDate.textContent = post.date;
+					tdCategory.textContent = post.category;
+					tdComments.textContent = post.comments;
+					tr.appendChild(tdTitle);
+					tr.appendChild(tdBody);
+					tr.appendChild(tdUser);
+					tr.appendChild(tdDate);
+					tr.appendChild(tdCategory);
+					tr.appendChild(tdComments);
+					postTableBody.appendChild(tr);
+				});
+			});
+	</script>
+</body>
+
+</html>
+<!-- footer -->
+<footer class="bg-dark text-center text-white">
+  <div class="container p-4 pb-">
+    <section class="mb-4">
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><img
+          src="{% static '/img/iconos/1298770_twitter_bird_social media_tweet_icon.png'%}" alt="twitter" height="20">
+        ></a>
+      <a class="btn btn-outline-light btn-floating m-1" href="instagram.com/powertienda" role="button"><img
+          src="{% static '/img/iconos/2993766_instagram_social media_icon.png'%}" alt="instagram" height="20">
+        ></a>
+      <a class="btn btn-outline-light btn-floating m-1" href="telegram.com" role="button"><img
+          src="{% static '/img/iconos/3787425_telegram_logo_messanger_social_social media_icon.png'%}" alt="telegram" height="20">
+        ></a>
+      <a class="btn btn-outline-light btn-floating m-1" href="facebook.com" role="button"><img
+          src="{% static '/img/iconos/4202110_facebook_logo_social_social media_icon.png'%}" alt="face" height="20">
+        ></a>
+      <a class="btn btn-outline-light btn-floating m-1" href="www.gov.cn" role="button"><img
+          src="{% static '/img/iconos/4362958_tiktok_logo_social media_icon.png'%}" alt="tiktok" height="20">
+        ></a>
+      <a class="btn btn-outline-light btn-floating m-1" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+        role="button"><img src="{% static '/img/iconos/4202041_video_youtube_logo_social_social media_icon.png'%}" alt="yutub"
+          height="20">
+        ></a>
+    </section>
+
+  </div>
+  <div class="text-center p-1" style="background-color:#343a40;">
+    La PowerTienda se ubica en
+    <a class="text"
+      href="https://www.google.com/search?client=firefox-b-d&q=duoc%20direccion&tbs=lrf:!1m4!1u2!2m2!2m1!1e1!2m1!1e2!3sIAE,lf:1,lf_ui:2&tbm=lcl&sxsrf=APwXEdcRvXp0RNjUZ8hMoZCK7ebl252_Ig:1683734832339&rflfq=1&num=10&rldimm=9224765676047391288&lqi=Cg5kdW9jIGRpcmVjY2lvbiICSAFI16eBweiAgIAIWgoQABgAIgRkdW9jkgERY29tbXVuaXR5X2NvbGxlZ2WqASwQATIeEAEiGt-uGNvJcymRqdlgzx7FNZIIb7TQtUEwZMBOMggQAiIEZHVvYw&ved=2ahUKEwih-M6Ekev-AhUUKLkGHVGHAFUQvS56BAgVEAE&sa=X&rlst=f#rlfi=hd:;si:9224765676047391288,l,Cg5kdW9jIGRpcmVjY2lvbiICSAFI16eBweiAgIAIWgoQABgAIgRkdW9jkgERY29tbXVuaXR5X2NvbGxlZ2WqASwQATIeEAEiGt-uGNvJcymRqdlgzx7FNZIIb7TQtUEwZMBOMggQAiIEZHVvYw;mv:[[-33.01911794202719,-71.50485997280273],[-33.04660545821557,-71.56279568752441]]">Álvarez
+      2336, Viña Del Mar</a>
+  </div>
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2023 Copyright Todos los derechos reservados
+    <a class="text-white" href="{% url 'rodillera' %}">Powertienda.com</a>
+  </div>
+</footer>
+<!--fin footer-->
+<script>
+  window.onload = function () {
+    initMap();
+  }
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDoVFoK1FmJ2Y_IQwA8I8k883D3OJMbUg8"></script>
+<script src="{% static 'js/index.js'%}"></script>
+<script src="{% static 'js/jquery.min.js'%}"></script>
+<script src="{% static 'js/owl.carousel.min.js'%}"></script>
+<script src="{% static 'js/main.js'%}"></script>
+<script src="{% static 'js/nav-link.js'%}"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
