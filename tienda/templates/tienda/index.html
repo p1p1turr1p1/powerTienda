@@ -48,9 +48,7 @@
               <li><a class="dropdown-item" href="{% url 'cinturon' %}">Cinturones</a></li>
               <li><a class="dropdown-item" href="{% url 'munequera' %}">Muñequeras</a></li>
               <li><a class="dropdown-item" href="{% url 'rodillera' %}">Rodilleras</a></li>
-
             </ul>
-
           <li class="nav-item d-none d-lg-block">
             <a class="nav-link mx-2" href="#">
               <img src="{% static '/img/etc/logo.png'%}" height="80" />
@@ -59,54 +57,26 @@
           <li class="nav-item">
             <a class="nav-link mx-2" href="{% url 'contacto' %}">Contacto</a>
           </li>
+          {% if request.user.is_authenticated %}
+          <li class="nav-item dropdown">
+            <a class="nav-link mx-2 dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              Hola {{ request.user.username }}
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <li><a class="dropdown-item" href="{% url 'logout_user' %}">Cerrar Sesión</a></li>
+            </ul>
+
+          {% else %}
           <li class="nav-item">
-            <a class="nav-link mx-2" href="{% url 'checkoutV' %}"><img src="{% static '/img/etc/carroBlanco.png'%}" height="25"
-                alt=""></a>
+            <a class="nav-link mx-2" href="{% url 'login_user' %}">Iniciar Sesión</a>
           </li>
-          <li class="nav-item" id="imagen">
-            <a href="" class="btn btn-default btn-rounded mb-10" data-bs-toggle="modal" data-bs-target="#logeomodal"><img
-                id="imagen" src="{% static '/img/etc/user.png'%}" height="50" width="50" alt=""></a>
-          </li>
+          {% endif %}
         </ul>
       </div>
     </div>
   </nav>
   <!-- fin BARRA NAVEGACION-->
-
-  <!-- modal login-->
-  <div class="modal fade" id="logeomodal" tabindex="-1" role="dialog" aria-labelledby="Logeo" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header text-center">
-          <h4 class="modal-title w-100">Logearse</h4>
-
-          </button>
-        </div>
-        <div class="modal-body mx-3">
-          <div class="md-form mb-2">
-            <i class="fas fa-user prefix grey-text"></i>
-            <input type="text" id="usuario" class="form-control" name="Usuario" placeholder="Usuario">
-          </div>
-          <div class="md-form mb-1">
-            <i class="fas fa-envelope prefix grey-text"></i>
-            <input type="password" id="contrasena" class="form-control validate" name="password"
-              placeholder="Contraseña">
-            <div class="modal-footer justify-content">
-              <button class="col-md-12 btn btn-primary btn-lg active" role="button" aria-pressed="true"
-                onclick="cambiarImagen()" data-dismiss="modal" us>Entrar</button>
-              <a href="{% url 'registro' %}" class="col-md-12 btn btn-outline-success btn-lg active" role="button"
-                aria-pressed="true">Registro</a>
-              </button>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </div>
-  </div>
-  <!--fin modal login-->
-
 
   <nav> <!-- CARRUSEL -->
     <section class="ftco-section" style="padding-top: 30px;">
