@@ -24,7 +24,7 @@
 </div>
 
 <body>
-  <!--NAVBAR-->
+ <!--NAVBAR-->
   <var></var>
   <nav class="navbar navbar-expand-lg navbar-dark p-3 bg-info" id="headerNav">
     <div class="container-fluid">
@@ -65,9 +65,14 @@
               Hola {{ request.user.username }}
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              {% if user.is_staff %}
+              <li><a class="dropdown-item" href="{% url 'agregar' %}">Agregar Productos</a></li>
+              <li><a class="dropdown-item" href="{% url 'listar' %}">Modificar Productos</a></li>
+              {% endif %}
               <li><a class="dropdown-item" href="{% url 'logout_user' %}">Cerrar Sesión</a></li>
-            </ul>
 
+            </ul>
+ 
           {% else %}
           <li class="nav-item">
             <a class="nav-link mx-2" href="{% url 'login_user' %}">Iniciar Sesión</a>
@@ -139,44 +144,44 @@
   {% endif %}
 
   </div>
-  <!-- footer -->
-  <footer class="bg-dark text-center text-white">
-    <div class="container p-4 pb-">
-      <section class="mb-4">
-        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><img
-            src="/img/iconos/1298770_twitter_bird_social media_tweet_icon.png" alt="twitter" height="20">
-          ></a>
-        <a class="btn btn-outline-light btn-floating m-1" href="instagram.com/powertienda" role="button"><img
-            src="/img/iconos/2993766_instagram_social media_icon.png" alt="instagram" height="20">
-          ></a>
-        <a class="btn btn-outline-light btn-floating m-1" href="telegram.com" role="button"><img
-            src="/img/iconos/3787425_telegram_logo_messanger_social_social media_icon.png" alt="telegram" height="20">
-          ></a>
-        <a class="btn btn-outline-light btn-floating m-1" href="facebook.com" role="button"><img
-            src="/img/iconos/4202110_facebook_logo_social_social media_icon.png" alt="face" height="20">
-          ></a>
-        <a class="btn btn-outline-light btn-floating m-1" href="www.gov.cn" role="button"><img
-            src="/img/iconos/4362958_tiktok_logo_social media_icon.png" alt="tiktok" height="20">
-          ></a>
-        <a class="btn btn-outline-light btn-floating m-1" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-          role="button"><img src="/img/iconos/4202041_video_youtube_logo_social_social media_icon.png" alt="yutub"
-            height="20">
-          ></a>
-      </section>
+ <!-- footer -->
+<footer class="bg-dark text-center text-white">
+  <div class="container p-4 pb-">
+    <section class="mb-4">
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><img
+          src="{% static '/img/iconos/1298770_twitter_bird_social media_tweet_icon.png'%}" alt="twitter" height="20">
+        ></a>
+      <a class="btn btn-outline-light btn-floating m-1" href="instagram.com/powertienda" role="button"><img
+          src="{% static '/img/iconos/2993766_instagram_social media_icon.png'%}" alt="instagram" height="20">
+        ></a>
+      <a class="btn btn-outline-light btn-floating m-1" href="telegram.com" role="button"><img
+          src="{% static '/img/iconos/3787425_telegram_logo_messanger_social_social media_icon.png'%}" alt="telegram" height="20">
+        ></a>
+      <a class="btn btn-outline-light btn-floating m-1" href="facebook.com" role="button"><img
+          src="{% static '/img/iconos/4202110_facebook_logo_social_social media_icon.png'%}" alt="face" height="20">
+        ></a>
+      <a class="btn btn-outline-light btn-floating m-1" href="www.gov.cn" role="button"><img
+          src="{% static '/img/iconos/4362958_tiktok_logo_social media_icon.png'%}" alt="tiktok" height="20">
+        ></a>
+      <a class="btn btn-outline-light btn-floating m-1" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+        role="button"><img src="{% static '/img/iconos/4202041_video_youtube_logo_social_social media_icon.png'%}" alt="yutub"
+          height="20">
+        ></a>
+    </section>
 
-    </div>
-    <div class="text-center p-1" style="background-color:#343a40;">
-      La PowerTienda se ubica en
-      <a class="text"
-        href="https://www.google.com/search?client=firefox-b-d&q=duoc%20direccion&tbs=lrf:!1m4!1u2!2m2!2m1!1e1!2m1!1e2!3sIAE,lf:1,lf_ui:2&tbm=lcl&sxsrf=APwXEdcRvXp0RNjUZ8hMoZCK7ebl252_Ig:1683734832339&rflfq=1&num=10&rldimm=9224765676047391288&lqi=Cg5kdW9jIGRpcmVjY2lvbiICSAFI16eBweiAgIAIWgoQABgAIgRkdW9jkgERY29tbXVuaXR5X2NvbGxlZ2WqASwQATIeEAEiGt-uGNvJcymRqdlgzx7FNZIIb7TQtUEwZMBOMggQAiIEZHVvYw&ved=2ahUKEwih-M6Ekev-AhUUKLkGHVGHAFUQvS56BAgVEAE&sa=X&rlst=f#rlfi=hd:;si:9224765676047391288,l,Cg5kdW9jIGRpcmVjY2lvbiICSAFI16eBweiAgIAIWgoQABgAIgRkdW9jkgERY29tbXVuaXR5X2NvbGxlZ2WqASwQATIeEAEiGt-uGNvJcymRqdlgzx7FNZIIb7TQtUEwZMBOMggQAiIEZHVvYw;mv:[[-33.01911794202719,-71.50485997280273],[-33.04660545821557,-71.56279568752441]]">Álvarez
-        2336, Viña Del Mar</a>
-    </div>
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-      © 2023 Copyright Todos los derechos reservados
-      <a class="text-white" href="/index.html">Powertienda.com</a>
-    </div>
-  </footer>
-  <!--fin footer-->
+  </div>
+  <div class="text-center p-1" style="background-color:#343a40;">
+    La PowerTienda se ubica en
+    <a class="text"
+      href="https://www.google.com/search?client=firefox-b-d&q=duoc%20direccion&tbs=lrf:!1m4!1u2!2m2!2m1!1e1!2m1!1e2!3sIAE,lf:1,lf_ui:2&tbm=lcl&sxsrf=APwXEdcRvXp0RNjUZ8hMoZCK7ebl252_Ig:1683734832339&rflfq=1&num=10&rldimm=9224765676047391288&lqi=Cg5kdW9jIGRpcmVjY2lvbiICSAFI16eBweiAgIAIWgoQABgAIgRkdW9jkgERY29tbXVuaXR5X2NvbGxlZ2WqASwQATIeEAEiGt-uGNvJcymRqdlgzx7FNZIIb7TQtUEwZMBOMggQAiIEZHVvYw&ved=2ahUKEwih-M6Ekev-AhUUKLkGHVGHAFUQvS56BAgVEAE&sa=X&rlst=f#rlfi=hd:;si:9224765676047391288,l,Cg5kdW9jIGRpcmVjY2lvbiICSAFI16eBweiAgIAIWgoQABgAIgRkdW9jkgERY29tbXVuaXR5X2NvbGxlZ2WqASwQATIeEAEiGt-uGNvJcymRqdlgzx7FNZIIb7TQtUEwZMBOMggQAiIEZHVvYw;mv:[[-33.01911794202719,-71.50485997280273],[-33.04660545821557,-71.56279568752441]]">Álvarez
+      2336, Viña Del Mar</a>
+  </div>
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2023 Copyright Todos los derechos reservados
+    <a class="text-white" href="{% url 'rodillera' %}">Powertienda.com</a>
+  </div>
+</footer>
+<!--fin footer-->
 
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDoVFoK1FmJ2Y_IQwA8I8k883D3OJMbUg8"></script>
   <script src="{% static 'js/index.js'%}"></script>
