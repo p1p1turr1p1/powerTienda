@@ -78,9 +78,10 @@
     </div>
   </nav>
   <!-- fin BARRA NAVEGACION-->
+  {% if request.user.is_authenticated %}
 
   <!-- formulario de contacto en html y css -->
-
+  {% else %}
   <section class="py-5">
     < <div class="container py-5 h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
@@ -135,7 +136,7 @@
   </section>
 
   <!-- fin formulario -->
-
+  {% endif %}
 
   </div>
   <!-- footer -->

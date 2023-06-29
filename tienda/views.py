@@ -1,14 +1,17 @@
 
-from django.shortcuts import render,redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.models import User,auth
-from .models import Usuario
+from .models import Producto
+from .forms import ProductoForm
+
 
 # Create your views here.
 
 
 def index(request):
-    context={}
+    productos = Producto.objects.all()
+    context={'productos': productos}
     return render(request, 'tienda/index.html', context)
 
 def contacto(request):
@@ -17,7 +20,7 @@ def contacto(request):
 
 def rodillera(request):
     context={}
-    return render(request, 'tienda/rodillera.html', context)
+    return render(request, 'tienda/rodill era.html', context)
 
 def munequera(request):
     context={}
@@ -79,3 +82,38 @@ def checkoutV(request):
 def login(request):
     context={}
     return render(request, 'tienda/login.html', context)
+
+def agregar(request):
+    context={'form': ProductoForm}
+    if request.method == 'POST':
+        formulario = ProductoForm(data=request.POST, files=request.FILES)
+        if formulario.is_valid():
+            formulario.save()
+            context["mensaje"] = "guardado correctamente"
+        else:
+            context["form"] = formulario
+        
+    return render(request, 'tienda/agregar.html', context)
+
+def listar(request):
+    productos = Producto.objects.all()
+    context={'productos':productos}
+    return render(request, 'tienda/listar.html', context)
+
+
+def modificar(request, id):
+    producto = get_object_or_404(Producto, id=id)
+    context={'form': ProductoForm(instance=producto)}
+    if request.method == 'POST':
+        formulario = ProductoForm (data=request. POST, instance=producto, files=request. FILES)
+        if formulario.is_valid():
+            formulario. save ()
+            return redirect (to="listar")
+        context["form"] | formulario
+    return render(request, 'tienda/modificar.html', context)
+
+def eliminar(request, id):
+    producto = get_object_or_404(Producto, id=id)
+    producto.delete()
+    return redirect (to="listar")
+

@@ -16,7 +16,11 @@ urlpatterns = [
    path('login', views.login, name='login'),
    path("login_user", views.login_user, name="login_user"),
    path("logout_user", views.logout_user, name="logout_user"),
+   path("agregar", views.agregar, name="agregar"),
+   path("modificar/<id>/", views.modificar, name="modificar"),
+   path("listar", views.listar, name="listar"),
+   path("eliminar/<id>/", views.eliminar, name="eliminar"),
 
-   # path('listadoSQL', views.listadoSQL, name='listadoSQL'),
+
 ] 
 

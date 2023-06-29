@@ -64,9 +64,14 @@
               Hola {{ request.user.username }}
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              {% if user.is_staff %}
+              <li><a class="dropdown-item" href="{% url 'agregar' %}">Agregar Productos</a></li>
+              <li><a class="dropdown-item" href="{% url 'listar' %}">Modificar Productos</a></li>
+              {% endif %}
               <li><a class="dropdown-item" href="{% url 'logout_user' %}">Cerrar Sesión</a></li>
-            </ul>
 
+            </ul>
+ 
           {% else %}
           <li class="nav-item">
             <a class="nav-link mx-2" href="{% url 'login_user' %}">Iniciar Sesión</a>
@@ -77,6 +82,7 @@
     </div>
   </nav>
   <!-- fin BARRA NAVEGACION-->
+
 
   <nav> <!-- CARRUSEL -->
     <section class="ftco-section" style="padding-top: 30px;">
@@ -133,8 +139,28 @@
       </div>
   </nav>
   </section>
-
   </nav>
+  
+<div class="container mt-5 mb-5">
+  {% block content %}
+
+  <div class="card-columns">
+          {% for p in productos %}
+              <div class="card" style="width: 20rem;">
+                  <div class="card-body">
+                    <img src="{{ p.imagen.url }}" class="card-img-top" alt="...">
+                      <h4 class="card-title">{{ p.nombre }}</h4>
+                      <h6 class="card-subtitle mb-2 text-muted">{{p.descripción}}</h6>
+                          <p class="card-text">{{ book.title }}</p>
+                      <a href="#" class="btn btn-success">Comprar</a>
+                  </div>
+              </div>
+          {% endfor %}
+  </div><!-- end div card columns -->
+  
+  {% endblock content %}
+</div>
+
   <!-- CARDS -->
 
   <div class="container">

@@ -78,6 +78,8 @@
      </div>
    </nav>
    <!-- fin BARRA NAVEGACION-->
+   {% if user.is_authenticated %}
+   {% else %}
 
   <!-- formulario de contacto en html y css -->
 
@@ -124,7 +126,7 @@
       </div>
       </div>
   </section>
-
+    {% endif %}
   <!-- fin formulario -->
 
 
