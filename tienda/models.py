@@ -5,14 +5,14 @@ from datetime import datetime
 class Talla(models.Model):
     nombre= models.CharField(max_length=50)
     
-def __str__(self):
-    return self.nombre
+    def __str__(self):
+        return self.nombre
 
 class Categoria(models.Model):
     nombre= models.CharField(max_length=50)
 
-def __str__(self):
-    return self.nombre
+    def __str__(self):
+        return self.nombre
 
 class Producto(models.Model):
     nombre= models.CharField(max_length=50)
@@ -22,5 +22,5 @@ class Producto(models.Model):
     categoria= models.ForeignKey(Categoria, on_delete=models.PROTECT)
     imagen = models.ImageField(upload_to='productos', null=True)
 
-def __str__(self):
-    return self.nombrecda
+    def __str__(self):
+        return self.nombre
