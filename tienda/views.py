@@ -1,17 +1,23 @@
-
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.models import User,auth
-from .models import Producto
 from .forms import ProductoForm
-
-
+from django.contrib import messages
+from django.core.paginator import Paginator
+from django.http import Http404
+from .models import * 
 # Create your views here.
 
 
 def index(request):
     productos = Producto.objects.all()
-    context={'productos': productos}
+    page = request.GET.get('page', 1)
+    try:
+        paginator = Paginator(productos, 6)
+        productos = paginator.page(page)
+    except:
+        raise Http404
+    context={'entity': productos, 'paginator': paginator}
     return render(request, 'tienda/index.html', context)
 
 def contacto(request):
@@ -66,7 +72,7 @@ def login_user(request):
             auth.login(request, user)
             return redirect('index')
         else:
-            messages.info(request, 'Invalid Username or Password')
+            messages.info(request, 'Usuario o Contraseña incorrecta.')
             return redirect('login_user')
     else:
         return render(request, 'tienda/login.html')
@@ -75,9 +81,6 @@ def logout_user(request):
     auth.logout(request)
     return redirect('index')
 
-def checkoutV(request):
-    context={}
-    return render(request, 'tienda/checkoutVacio.html', context)
 
 def login(request):
     context={}
@@ -89,7 +92,9 @@ def agregar(request):
         formulario = ProductoForm(data=request.POST, files=request.FILES)
         if formulario.is_valid():
             formulario.save()
-            context["mensaje"] = "guardado correctamente"
+            messages.success(request, "Producto Agregado")
+            return redirect (to="listar")
+
         else:
             context["form"] = formulario
         
@@ -101,6 +106,7 @@ def listar(request):
     return render(request, 'tienda/listar.html', context)
 
 
+
 def modificar(request, id):
     producto = get_object_or_404(Producto, id=id)
     context={'form': ProductoForm(instance=producto)}
@@ -108,6 +114,7 @@ def modificar(request, id):
         formulario = ProductoForm (data=request. POST, instance=producto, files=request. FILES)
         if formulario.is_valid():
             formulario. save ()
+            messages.success(request, "Producto Modificado")
             return redirect (to="listar")
         context["form"] | formulario
     return render(request, 'tienda/modificar.html', context)
@@ -115,5 +122,52 @@ def modificar(request, id):
 def eliminar(request, id):
     producto = get_object_or_404(Producto, id=id)
     producto.delete()
+    messages.success(request, "Producto Eliminado")
     return redirect (to="listar")
 
+
+def detalle(request, id):
+    productoo = get_object_or_404(Producto, id=id)
+    context={'producto':productoo}
+    return render(request,"tienda/detalle.html",context)
+
+
+def checkoutV(request):
+    context={}
+    return render(request, 'tienda/checkoutVacio.html', context)
+
+def rodilleras(request):
+    productos = Producto.objects.filter(categoria = 1)
+    categoria = Categoria.objects.all()
+    page = request.GET.get('page', 1)
+    try:
+        paginator = Paginator(productos, 6)
+        productos = paginator.page(page)
+    except:
+        raise Http404
+    context={'entity': productos, 'paginator': paginator,'categoria': categoria }
+    return render(request, 'tienda/rodilleras.html', context)
+
+def cinturones(request):
+    productos = Producto.objects.filter(categoria = 2)
+    categoria = Categoria.objects.all()
+    page = request.GET.get('page', 1)
+    try:
+        paginator = Paginator(productos, 6)
+        productos = paginator.page(page)
+    except:
+        raise Http404
+    context={'entity': productos, 'paginator': paginator,'categoria': categoria }
+    return render(request, 'tienda/cinturones.html', context)
+
+def munequeras(request):
+    productos = Producto.objects.filter(categoria = 3)
+    categoria = Categoria.objects.all()
+    page = request.GET.get('page', 1)
+    try:
+        paginator = Paginator(productos, 6)
+        productos = paginator.page(page)
+    except:
+        raise Http404
+    context={'entity': productos, 'paginator': paginator,'categoria': categoria }
+    return render(request, 'tienda/munequeras.html', context)

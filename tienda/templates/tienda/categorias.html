@@ -1,0 +1,177 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PowerTienda - La mejor tienda del mundo</title>
+  <link rel="stylesheet" href="{% static 'css/css/style.css' %}">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/css/owl.carousel.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css'%}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/4.5.6/css/ionicons.min.css">
+  <link rel="stylesheet" href="{% static 'css/css/animate.css' %}">
+  <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+  <link rel="icon" type="image/x-icon" href="{% static '/img/etc/favicon.png'%}">
+
+</head>
+<div id="preloader">
+  <img src="{% static '/img/iconos/loading.gif'%}" alt="Loading...">
+</div>
+
+<body>
+
+  {% include 'tienda/navbar.html' %}
+
+  <div class="fade-in">
+    <p style="font-size: xxx-large;">Muñequeras</p>
+  </div>
+
+  <!--PRODUCTOS----------------------------------------------------------------------------------------------------------------- -->
+  <div class="container">
+    <div class="card-deck row">
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="card">
+          <div class="view overlay">
+            <img class="card-img-top" height="250" src="/img/munequeras/mun2.jpg" alt="Card image cap">
+            <a href="#!">
+              <div class="mask rgba-white-slight"></div>
+            </a>
+          </div>
+          <div class="card-body">
+            <h4 class="card-title">$42.000CLP</h4>
+            <p class="card-text">Muñequera marca ASD Roja.</p>
+            <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+            <a href="productos/muñequera1.html"><button type="button" class="btn btn-light-blue btn-md">
+                COMPRAR</button></a>
+
+
+          </div>
+
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="card mb-4">
+          <div class="view overlay">
+            <img class="card-img-top" height="250" src="/img/munequeras/mun3.jpg" alt="Card image cap">
+            <a href="#!">
+              <div class="mask rgba-white-slight"></div>
+            </a>
+          </div>
+          <div class="card-body">
+
+            <h4 class="card-title">$19.990CLP</h4>
+            <p class="card-text">Muñequera marca ALO.</p>
+            <button type="button" class="btn btn-light-blue btn-md">COMPRAR</button>
+
+          </div>
+
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="card mb-4">
+          <div class="view overlay">
+            <img class="card-img-top" height="250" src="/img/munequeras/mun4.jfif" alt="Card image cap">
+            <a href="#!">
+              <div class="mask rgba-white-slight"></div>
+            </a>
+          </div>
+          <div class="card-body">
+            <h4 class="card-title">$32.000CLP</h4>
+            <p class="card-text">Muñequera marca QWERTY</p>
+            <button type="button" class="btn btn-light-blue btn-md">COMPRAR</button>
+
+          </div>
+
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="card">
+          <div class="view overlay">
+            <img class="card-img-top" height="250" src="/img/munequeras/mun5.jpg" alt="Card image cap">
+            <a href="#!">
+              <div class="mask rgba-white-slight"></div>
+            </a>
+          </div>
+          <div class="card-body">
+            <h4 class="card-title">$50.000CLP</h4>
+            <p class="card-text">Muñequera marca HJK alta calidad.</p>
+            <button type="button" class="btn btn-light-blue btn-md">COMPRAR</button>
+
+          </div>
+
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="card mb-4">
+
+          <div class="view overlay">
+            <img class="card-img-top" height="250" src="/img/munequeras/mun6.jfif" alt="Card image cap">
+            <a href="#!">
+              <div class="mask rgba-white-slight"></div>
+            </a>
+          </div>
+          <div class="card-body">
+
+            <h4 class="card-title">$22.000CLP</h4>
+            <p class="card-text">Muñequera marca NOSE 😒.</p>
+            <button type="button" class="btn btn-light-blue btn-md">COMPRAR</button>
+
+          </div>
+
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="card mb-4">
+          <div class="view overlay">
+            <img class="card-img-top" height="250" src="/img/munequeras/mun7.webp" alt="Card image cap">
+            <a href="#!">
+              <div class="mask rgba-white-slight"></div>
+            </a>
+          </div>
+          <div class="card-body">
+
+            <h4 class="card-title">$20.000CLP</h4>
+            <p class="card-text">Muñequera marca bacan color negro.</p>
+            <button type="button" class="btn btn-light-blue btn-md">COMPRAR</button>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- fin PRODUCTOS----------------------------------------------------------------------------------------------------------------- -->
+
+
+
+
+
+  <input type="hidden" name="add-to-cart" value="162">
+  <input type="hidden" name="product_id" value="162">
+  <input type="hidden" name="variation_id" class="variation_id" value="0">
+  </div>
+
+
+{% include 'tienda/footer.html' %}
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDoVFoK1FmJ2Y_IQwA8I8k883D3OJMbUg8"></script>
+  <script src="{% static 'js/index.js'%}"></script>
+  <script src="{% static 'js/jquery.min.js'%}"></script>
+  <script src="{% static 'js/owl.carousel.min.js'%}"></script>
+  <script src="{% static 'js/main.js'%}"></script>
+  <script src="{% static 'js/nav-link.js'%}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
+  
+</body>
+
+</html>

@@ -20,7 +20,10 @@ urlpatterns = [
    path("modificar/<id>/", views.modificar, name="modificar"),
    path("listar", views.listar, name="listar"),
    path("eliminar/<id>/", views.eliminar, name="eliminar"),
-
+   path("detalle/<id>/", views.detalle, name="detalle"),
+   path("rodilleras", views.rodilleras, name="rodilleras"),
+   path("cinturones", views.cinturones, name="cinturones"),
+   path("munequeras", views.munequeras, name="munequeras"),
 
 ] 
 
